@@ -3,10 +3,11 @@
 Page web unique (destination du QR code sur les affiches A4) annonçant la
 remise de l'Auberge du Barrage, Rossens (FR).
 
-Le style est repris du site officiel **auberge-du-barrage.ch** :
-blanc / noir / bleu marine `#253551`, titres en capitales espacées,
-grandes photos plein cadre, boutons filaires, pied de page noir.
-Contenu volontairement minimal.
+Le style suit le **design system officiel de la marque** :
+brun `#1e1410` · crème `#f5f0eb` · or `#a7825f` ;
+Cormorant Garamond (titres capitales + corps italique),
+Josefin Sans (labels espacés), Allura (mot signature).
+Filets or, bords vifs, aucune ombre, aucun flou. Contenu volontairement minimal.
 
 ## Structure
 
@@ -36,7 +37,5 @@ Ouvrir `index.html` dans un navigateur, ou servir le dossier
 
 ## Polices
 
-Substituts Google Fonts (Josefin Sans, Sofia Sans). Les polices exactes du
-site officiel sont des Adobe Fonts liées à leur domaine et ne peuvent pas
-être réutilisées ici ; le CSS les garde en première position dans la pile
-au cas où la page serait un jour servie depuis un domaine disposant du kit.
+Cormorant Garamond, Josefin Sans et Allura, toutes depuis Google Fonts
+(`<link>` dans `index.html`).

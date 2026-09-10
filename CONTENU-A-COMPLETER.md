@@ -1,9 +1,12 @@
 # À compléter / à décider
 
-La page est volontairement minimale (style repris du site officiel).
-Contenu actuellement affiché — tout est confirmé sauf indication contraire :
+Page minimale, style repris du **design system officiel Auberge du Barrage**
+(brun `#1e1410` · crème `#f5f0eb` · or `#a7825f` ; Cormorant Garamond +
+Josefin Sans + Allura).
 
-- Grande salle : 80 à 100 personnes
+Contenu affiché (tout confirmé) :
+
+- Grande salle intérieure : 80 à 100 personnes
 - Terrasse : 50 places
 - Salle de comité / conférence : 30 personnes
 - Hôtel : 9 chambres
@@ -15,13 +18,13 @@ Contenu actuellement affiché — tout est confirmé sauf indication contraire :
 
 ## Ouvert
 
-- [ ] **Prix** : rien n'est affiché pour l'instant. Décider si on ajoute une fourchette (« dès CHF 200'000 » ?) ou si ça reste « sur demande ».
-- [ ] **Photos** : le hero et la section contact utilisent des photos du dossier `../Photo/`. À remplacer si de meilleures photos (extérieur récent, cuisine, chambres) sont disponibles.
-- [ ] **Polices** : substituts Google Fonts (Josefin Sans / Sofia Sans). Les polices exactes du site (gravesend-sans, sofia-pro d'Adobe Fonts) ne peuvent pas être hébergées ici sans le kit Adobe du domaine. Elles se chargeront automatiquement si la page passe un jour sur un domaine avec ce kit.
+- [ ] **Prix** : rien d'affiché. Ajouter une fourchette (« dès CHF 200'000 » ?) ou laisser « sur demande » ?
+- [ ] **Photos** : hero = façade, contact = salle (dossier `../Photo/`). À remplacer si de meilleures photos existent (façade récente, cuisine, chambres).
 - [ ] **Nom de l'interlocuteur** : pas affiché (juste le numéro). À ajouter si souhaité.
-- [ ] Décider si on garde « à reprendre » ou « à remettre » dans le titre.
+- [ ] Titre : « à remettre » — garder ou « à reprendre » ?
+- [ ] Police Allura : chargée via Google Fonts. Le DS prévoit un fichier local `Allura-Regular.ttf` — sans importance ici (rendu identique).
 
 ## Déploiement
 
 GitHub Pages : Settings → Pages → branche `main` / `/ (root)`.
-`noindex` + `robots.txt` restent actifs → la page ne remonte pas sur Google.
+`noindex` + `robots.txt` actifs → hors Google.
