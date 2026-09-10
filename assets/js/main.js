@@ -1,57 +1,27 @@
-/* Auberge du Barrage — remise de commerce : interactions légères */
+/* Auberge du Barrage — page de remise : interactions légères */
 (function () {
   "use strict";
 
-  /* ---- Menu mobile ---- */
-  var toggle = document.querySelector(".nav-toggle");
-  var links = document.getElementById("nav-links");
-  if (toggle && links) {
-    toggle.addEventListener("click", function () {
-      var open = links.classList.toggle("is-open");
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    });
-    links.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") {
-        links.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
-      }
-    });
-  }
+  /* En-tête : fond noir dès qu'on quitte le hero */
+  var header = document.getElementById("header");
+  var solidAfter = function () { return window.innerHeight * 0.6; };
+  var onScroll = function () {
+    if (window.scrollY > solidAfter()) header.classList.add("is-solid");
+    else header.classList.remove("is-solid");
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
 
-  /* ---- Formulaire de contact : ouvre la messagerie (mailto) ----
-     Remplacer par un service de formulaire (Formspree, Netlify Forms…)
-     en changeant l'attribut action/method du <form> — voir README. */
-  var DEST = "aubergebarrage@gmail.com";
-  var form = document.getElementById("contact-form");
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var get = function (id) {
-        var el = document.getElementById(id);
-        return el ? el.value.trim() : "";
-      };
-      var nom = get("f-nom");
-      var email = get("f-email");
-      if (!nom || !email) {
-        alert("Merci d'indiquer au moins votre nom et votre adresse e-mail.");
-        return;
-      }
-      var nda = document.getElementById("f-nda");
-      var lignes = [
-        "Nom : " + nom,
-        "Téléphone : " + (get("f-tel") || "—"),
-        "E-mail : " + email,
-        "",
-        "Projet :",
-        get("f-projet") || "—",
-        "",
-        "Dossier détaillé + accord de confidentialité : " + (nda && nda.checked ? "oui" : "non précisé")
-      ];
-      var url =
-        "mailto:" + DEST +
-        "?subject=" + encodeURIComponent("Demande de dossier — Reprise de l'Auberge du Barrage") +
-        "&body=" + encodeURIComponent(lignes.join("\n"));
-      window.location.href = url;
-    });
+  /* Apparition au défilement */
+  var reveals = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window && reveals.length) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add("is-in"); });
   }
 })();
