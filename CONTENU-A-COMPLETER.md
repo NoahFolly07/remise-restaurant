@@ -1,62 +1,27 @@
-# À compléter / confirmer
+# À compléter / à décider
 
-Un bandeau vert en haut de page prévient le lecteur que les chiffres sont indicatifs.
+La page est volontairement minimale (style repris du site officiel).
+Contenu actuellement affiché — tout est confirmé sauf indication contraire :
 
-## Priorité 1 — contact
+- Grande salle : 80 à 100 personnes
+- Terrasse : 50 places
+- Salle de comité / conférence : 30 personnes
+- Hôtel : 9 chambres
+- Appartement : 4,5 pièces
+- Cuisine professionnelle entièrement équipée
+- Reprise prévue : fin juin 2027
+- Clientèle locale et fidèle · bon chiffre d'affaires · activité en cours jusqu'à la remise
+- Contact : 079 365 90 04 · aubergebarrage@gmail.com
 
-- [ ] **Nom du cédant** — section Contact : `[Nom du cédant — à compléter]`
-- [x] Mobile du cédant : 079 365 90 04
-- [x] Téléphone restaurant : 026 411 08 80
-- [x] E-mail : aubergebarrage@gmail.com
-- [x] Adresse : Route du Barrage 83, 1728 Rossens (FR)
-- [x] Langue de contact : français
+## Ouvert
 
-## Priorité 2 — chiffres clés (hero + fiche)
+- [ ] **Prix** : rien n'est affiché pour l'instant. Décider si on ajoute une fourchette (« dès CHF 200'000 » ?) ou si ça reste « sur demande ».
+- [ ] **Photos** : le hero et la section contact utilisent des photos du dossier `../Photo/`. À remplacer si de meilleures photos (extérieur récent, cuisine, chambres) sont disponibles.
+- [ ] **Polices** : substituts Google Fonts (Josefin Sans / Sofia Sans). Les polices exactes du site (gravesend-sans, sofia-pro d'Adobe Fonts) ne peuvent pas être hébergées ici sans le kit Adobe du domaine. Elles se chargeront automatiquement si la page passe un jour sur un domaine avec ce kit.
+- [ ] **Nom de l'interlocuteur** : pas affiché (juste le numéro). À ajouter si souhaité.
+- [ ] Décider si on garde « à reprendre » ou « à remettre » dans le titre.
 
-| Donnée | Sur la page | Statut |
-|---|---|---|
-| Grande salle | 80 à 100 personnes | confirmé |
-| Salle de comité / conférence | 30 personnes | confirmé |
-| Terrasse | 50 places | confirmé |
-| Hébergement | 9 chambres + appartement 4,5 pièces | confirmé |
-| Date de reprise | 28.06.2027 | confirmé |
-| Prix — reprise du fonds | dès CHF 200'000 | à confirmer |
-| Prix — achat murs + fonds | à définir | à définir |
-| Chiffre d'affaires | « bon » (qualitatif, pas de chiffre public) | ok |
-| Effectif | ≈ 8 personnes | à confirmer |
-| Bail / loyer | non mentionné (volontairement) | décision : ne pas afficher pour l'instant |
+## Déploiement
 
-## Priorité 3 — fiche technique (section Caractéristiques)
-
-- [ ] Liste précise du matériel de cuisine inclus + âge / marques
-- [ ] Type d'énergie du chauffage
-- [ ] Date du dernier contrôle électrique (OIBT)
-- [ ] Date + résultat du dernier contrôle des denrées alimentaires (HACCP)
-- [ ] Date + résultat du dernier contrôle sécurité incendie (ECAB)
-- [ ] Nombre de places de parking
-- [ ] Accès PMR : oui / non
-- [ ] Fermeture annuelle (dates)
-- [ ] Ligne de bus / arrêt le plus proche
-- [ ] Surfaces en m² si on veut les afficher (retirées pour l'instant)
-
-## Priorité 4 — exploitation
-
-- [ ] Note Google + nombre d'avis, note TripAdvisor
-- [ ] Contrats en cours réellement transférables (fournisseurs, leasing, TPE, musique, entretien)
-- [ ] Nom de domaine / site web actuel (www.aubergedubarrage.ch ?) — repris ou non
-- [ ] Année d'ouverture de l'établissement / année de reprise par les cédants actuels
-
-## Photos
-
-Photos actuelles tirées du dossier `../Photo/`. À prévoir si possible :
-
-- [ ] Cuisine (piano, chambres froides)
-- [ ] Extérieur / terrasse en journée avec clients
-- [ ] Plan des locaux
-- [ ] Chambres supplémentaires + l'appartement (2 photos de chambres seulement pour l'instant)
-
-## Divers
-
-- [ ] Choisir la formule de transaction (fonds seul / murs + fonds / les deux) et adapter la section « La reprise »
-- [ ] Décider si le nom du cédant apparaît ou si on garde « les propriétaires »
-- [ ] Vérifier le lien carte (actuellement recherche OpenStreetMap sur l'adresse)
+GitHub Pages : Settings → Pages → branche `main` / `/ (root)`.
+`noindex` + `robots.txt` restent actifs → la page ne remonte pas sur Google.

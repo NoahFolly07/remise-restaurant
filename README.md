@@ -1,56 +1,42 @@
-# Auberge du Barrage — page de remise de commerce
+# Auberge du Barrage — page de remise
 
-Page web unique présentant la remise de l'Auberge du Barrage (Rossens, FR).
-Destination du QR code imprimé sur les affiches A4.
+Page web unique (destination du QR code sur les affiches A4) annonçant la
+remise de l'Auberge du Barrage, Rossens (FR).
+
+Le style est repris du site officiel **auberge-du-barrage.ch** :
+blanc / noir / bleu marine `#253551`, titres en capitales espacées,
+grandes photos plein cadre, boutons filaires, pied de page noir.
+Contenu volontairement minimal.
 
 ## Structure
 
 ```
-index.html                 La page
-assets/css/style.css        Styles (charte brun-beige, Cormorant Garamond + Josefin Sans)
-assets/js/main.js           Menu mobile + formulaire de contact (mailto)
-assets/img/                 Photos
-assets/logo/                Logos
-robots.txt                  Bloque l'indexation
-CONTENU-A-COMPLETER.md       Liste des informations à confirmer / remplacer
+index.html              La page (une seule)
+assets/css/style.css     Styles
+assets/js/main.js        En-tête au scroll + apparitions au défilement
+assets/img/              Photos (tirées du dossier ../Photo/)
+assets/logo/             Logos
+robots.txt               Bloque l'indexation
+CONTENU-A-COMPLETER.md    Points ouverts / à décider
 ```
 
-La page est **volontairement non indexée** : balise `<meta name="robots" content="noindex, nofollow">`
-dans `index.html` **et** `robots.txt` qui bloque tout. À garder tant que la remise doit rester discrète.
+Page **non indexée** : `<meta name="robots" content="noindex, nofollow">`
++ `robots.txt`. À garder tant que la remise doit rester discrète.
 
-## Voir la page en local
+## Voir en local
 
-Ouvrir `index.html` dans un navigateur, ou servir le dossier :
-
-```bash
-python -m http.server 8000
-```
-
-Puis ouvrir http://localhost:8000
+Ouvrir `index.html` dans un navigateur, ou servir le dossier
+(`npx http-server`, extension Live Server, etc.).
 
 ## Mettre en ligne (GitHub Pages)
 
-1. Pousser le contenu de ce dossier à la racine de la branche `main`.
-2. Repo → **Settings → Pages** → Source : `Deploy from a branch`, branche `main`, dossier `/ (root)`.
-3. L'URL fournie (`https://<compte>.github.io/remise-restaurant/`) est celle à encoder dans le QR code.
+1. Pousser sur `main`.
+2. Repo → **Settings → Pages** → *Deploy from a branch*, `main`, `/ (root)`.
+3. L'URL fournie est celle à encoder dans le QR code.
 
-> `noindex` + `robots.txt` restent actifs sur GitHub Pages : la page ne remontera pas dans Google.
+## Polices
 
-## Formulaire de contact
-
-Par défaut, le bouton **« Envoyer la demande »** ouvre la messagerie du visiteur avec un e-mail
-pré-rempli vers `aubergebarrage@gmail.com` (aucun serveur requis).
-
-Pour recevoir les demandes sans dépendre du client mail du visiteur, brancher un service de
-formulaire (gratuit) :
-
-- **Formspree** — créer un formulaire, récupérer l'URL `https://formspree.io/f/xxxx`, puis dans
-  `index.html` remplacer `<form id="contact-form" novalidate>` par
-  `<form id="contact-form" action="https://formspree.io/f/xxxx" method="POST">` et supprimer,
-  dans `assets/js/main.js`, le bloc `form.addEventListener("submit", …)`.
-- **Netlify Forms** — si hébergé sur Netlify : ajouter `name="contact" netlify` au `<form>`.
-
-## À compléter avant diffusion
-
-Voir `CONTENU-A-COMPLETER.md`. Tous les chiffres actuels sont des estimations marquées
-« à confirmer » et un bandeau vert le signale en haut de page.
+Substituts Google Fonts (Josefin Sans, Sofia Sans). Les polices exactes du
+site officiel sont des Adobe Fonts liées à leur domaine et ne peuvent pas
+être réutilisées ici ; le CSS les garde en première position dans la pile
+au cas où la page serait un jour servie depuis un domaine disposant du kit.
