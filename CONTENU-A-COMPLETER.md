@@ -1,38 +1,49 @@
 # À compléter / à décider
 
-Page en 4 blocs : Hero → L'établissement (fiche) → Photos (mosaïque +
-visionneuse) → Contact. Palette brun `#1e1410` / crème `#f5f0eb` / or
-`#a7825f`. Cormorant Garamond réservé au grand titre du hero ; tout le
-reste en Inter (lisibilité) ; Josefin Sans pour les petits labels ; une
-seule trace d'Allura (slogan du pied de page).
+Page en 4 blocs : Hero → L'établissement (fiche) → Photos (mosaïque
+réduite + visionneuse) → Contact. Palette brun `#1e1410` / crème
+`#f5f0eb` / or `#a7825f`. Cormorant Garamond pour les titres et les
+eyebrows en Allura, Inter pour le texte courant, Josefin Sans pour les
+petits labels.
 
 ## Ouvert
 
-- [ ] **Logo** : Noah a transmis une image du logo dans le chat (icône
-      dorée, fond transparent) — visuellement identique à
-      `assets/logo/logo.png` déjà utilisé dans le projet. Si le fichier
-      réel diffère (résolution, version), le déposer directement dans
-      `remise-restaurant/assets/logo/` (Claude a accès au dossier en
-      local) plutôt que de le repartager dans le chat.
-- [ ] **Référence de style** : Noah doit envoyer un site qu'il aime pour
-      une prochaine passe de design (structure « landing page » moderne).
-      Rien à faire tant que le lien n'est pas arrivé.
-- [ ] **Prix** : toujours rien d'affiché.
-- [ ] **Nom de l'interlocuteur** : toujours pas affiché.
+- [ ] **Logo** : Noah a transmis une image (icône dorée, fond
+      transparent) — visuellement identique à `assets/logo/logo.png`
+      déjà utilisé. Si le fichier réel diffère, le déposer directement
+      dans `remise-restaurant/assets/logo/` (accès local direct) plutôt
+      que de le repartager dans le chat, qui ne permet pas de récupérer
+      le fichier lui-même.
+- [ ] **Vidéos** : Noah va envoyer des vidéos à ajouter à la visionneuse
+      photos. Prévoir dans `assets/img/` (ou un sous-dossier `video/`) et
+      ajouter les items dans `#mosaic-more` ; la visionneuse (JS) devra
+      être étendue pour afficher un `<video>` au lieu d'un `<img>` selon
+      le type de fichier.
+- [ ] **Référence de style** : toujours en attente d'un lien de site que
+      Noah aime, pour une passe de design plus poussée.
+- [ ] **Prix** / **nom de l'interlocuteur** : toujours pas affichés.
 
-## Notes techniques (v4)
+## Notes techniques (v5)
 
-- **En-tête** : masqué au scroll vers le bas, réaffiché au scroll vers le
-  haut ou en haut de page (comme demandé). Passe en fond brun uni une fois
-  sorti du hero.
-- **Hero** : contenu recentré verticalement (plus haut qu'avant), le trait
-  décoratif en bas a été supprimé.
-- **L'établissement** : retour à l'encadré « frame in frame » avec liste à
-  points de conduite (version préférée par Noah à la grille de chiffres).
-- **Photos** : mosaïque plein cadre (12 photos, tailles variées, zéro
-  légende) ; clic sur une photo → visionneuse plein écran avec flèches
-  précédent/suivant, fermeture (croix, Échap, clic hors-image), swipe
-  tactile. Aucune librairie externe.
+- **Bug de largeur corrigé** : la mosaïque photos utilisait une marge
+  négative pour être « plein cadre », mais son parent (`<section>`) n'a
+  pas de marge intérieure à compenser — ça faisait déborder toute la page
+  horizontalement (marge blanche à droite sur mobile). Retiré, et ajouté
+  `overflow-x: hidden` sur `html`/`body` en garde-fou. **Si Noah voit
+  encore un décalage après ce déploiement, lui demander de vider le cache
+  / forcer le rechargement du site sur son téléphone** (le CSS est mis en
+  cache agressivement).
+- **Typographies** : eyebrows de section en Allura script (`l'établissement`,
+  `photos`), titres de section en Cormorant Garamond capitales (comme
+  avant la passe « plus lisible »).
+- **Encadré fiche technique** : coins renforcés retirés, reste un simple
+  cadre 1px. Les 3 infos qualitatives (clientèle / CA / activité) sont
+  maintenant des lignes de la même liste, plus de bloc à part.
+- **Photos** : seules 5 photos sont visibles (1 grande + 4), le reste
+  (7 photos) est cliquable uniquement via le bouton « Voir plus », qui
+  ouvre la visionneuse directement sur la 6ᵉ photo — tout reste swipable
+  depuis là.
+- **Hero** : titre agrandi (`clamp` plus généreux) pour plus d'impact.
 
 ## Déploiement
 

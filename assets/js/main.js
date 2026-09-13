@@ -70,6 +70,13 @@
     items.forEach(function (el, i) {
       el.addEventListener("click", function () { open(i); });
     });
+    var moreBtn = document.getElementById("gallery-more-btn");
+    if (moreBtn) {
+      moreBtn.addEventListener("click", function () {
+        var firstHidden = document.querySelector("#mosaic-more .mosaic__item");
+        open(firstHidden ? items.indexOf(firstHidden) : 0);
+      });
+    }
     document.getElementById("lightbox-close").addEventListener("click", close);
     document.getElementById("lightbox-prev").addEventListener("click", function () { show(current - 1); });
     document.getElementById("lightbox-next").addEventListener("click", function () { show(current + 1); });

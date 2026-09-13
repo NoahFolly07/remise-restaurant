@@ -47,7 +47,7 @@
 <section class="section section--cream anchor" id="etablissement">
   <div class="wrap">
     <div class="head reveal">
-      <span class="label">L'établissement</span>
+      <span class="script">l'établissement</span>
       <h2>Ce qui est à remettre</h2>
     </div>
 
@@ -61,14 +61,11 @@
         <div class="listing__row"><span class="listing__k">Cuisine</span><span class="listing__dots" aria-hidden="true"></span><span class="listing__v">Professionnelle, entièrement équipée</span></div>
         <div class="listing__row"><span class="listing__k">Autoroute</span><span class="listing__dots" aria-hidden="true"></span><span class="listing__v">Entrées / sorties à moins d'1 km</span></div>
         <div class="listing__row"><span class="listing__k">Reprise prévue</span><span class="listing__dots" aria-hidden="true"></span><span class="listing__v">Fin juin 2027</span></div>
+        <div class="listing__row"><span class="listing__k">Clientèle</span><span class="listing__dots" aria-hidden="true"></span><span class="listing__v">Locale et fidèle</span></div>
+        <div class="listing__row"><span class="listing__k">Chiffre d'affaires</span><span class="listing__dots" aria-hidden="true"></span><span class="listing__v">Bon</span></div>
+        <div class="listing__row"><span class="listing__k">Activité</span><span class="listing__dots" aria-hidden="true"></span><span class="listing__v">En cours jusqu'à la remise</span></div>
       </div>
     </div>
-
-    <p class="meta-line reveal">
-      <span>Clientèle locale et fidèle</span>
-      <span>Bon chiffre d'affaires</span>
-      <span>Activité en cours jusqu'à la remise</span>
-    </p>
   </div>
 </section>
 
@@ -76,7 +73,7 @@
 <section class="section section--cream anchor" id="photos">
   <div class="wrap">
     <div class="head reveal">
-      <span class="label">Photos</span>
+      <span class="script">photos</span>
       <h2>L'établissement en images</h2>
     </div>
   </div>
@@ -87,6 +84,11 @@
     <button class="mosaic__item" type="button"><img src="assets/img/bar.webp" alt="Le bar" loading="lazy" /></button>
     <button class="mosaic__item" type="button"><img src="assets/img/terrasse.webp" alt="La terrasse" loading="lazy" /></button>
     <button class="mosaic__item" type="button"><img src="assets/img/salle-banquet.webp" alt="Salle de banquet" loading="lazy" /></button>
+  </div>
+
+  <!-- Photos supplémentaires : pas affichées dans la mosaïque, mais
+       accessibles en swipe une fois la visionneuse ouverte. -->
+  <div class="mosaic-more" id="mosaic-more" hidden>
     <button class="mosaic__item" type="button"><img src="assets/img/chambre-1.webp" alt="Chambre d'hôtel" loading="lazy" /></button>
     <button class="mosaic__item" type="button"><img src="assets/img/chambre-2.webp" alt="Chambre d'hôtel" loading="lazy" /></button>
     <button class="mosaic__item" type="button"><img src="assets/img/evenements.webp" alt="Événement privé" loading="lazy" /></button>
@@ -94,6 +96,10 @@
     <button class="mosaic__item" type="button"><img src="assets/img/plat-signature.jpg" alt="Plat signature" loading="lazy" /></button>
     <button class="mosaic__item" type="button"><img src="assets/img/specialite-portugaise.jpg" alt="Spécialité portugaise" loading="lazy" /></button>
     <button class="mosaic__item" type="button"><img src="assets/img/frites.webp" alt="Frites maison" loading="lazy" /></button>
+  </div>
+
+  <div class="wrap gallery-more reveal">
+    <button class="cta" type="button" id="gallery-more-btn">Voir plus<span class="cta__arrow">→</span></button>
   </div>
 </section>
 

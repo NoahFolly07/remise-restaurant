@@ -34,9 +34,11 @@
 
 /* ----------  Reset  ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; overflow-x: hidden; }
 body {
   margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
   background: var(--cream);
   color: var(--brown);
   font-family: var(--body);
@@ -48,7 +50,26 @@ body {
 img { max-width: 100%; display: block; }
 a { color: inherit; }
 
+h1, h2, h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: .04em;
+  margin: 0;
+}
+
 /* ----------  Helpers  ---------- */
+.script {
+  display: block;
+  font-family: var(--script);
+  font-weight: 400;
+  text-transform: none;
+  color: var(--gold);
+  line-height: .9;
+  font-size: clamp(1.9rem, 4.6vw, 3.1rem);
+  margin-bottom: .1em;
+}
 .label {
   font-family: var(--label);
   font-weight: 400;
@@ -71,13 +92,9 @@ a { color: inherit; }
 .anchor { scroll-margin-top: 84px; }
 
 .head { margin-bottom: clamp(30px, 4.5vw, 48px); max-width: 42rem; }
-.head .label { margin-bottom: .7rem; display: block; }
 .head h2 {
-  font-family: var(--body);
-  font-weight: 600;
-  font-size: clamp(1.5rem, 3.4vw, 2.2rem);
-  letter-spacing: -.01em;
-  margin: 0;
+  font-size: clamp(1.8rem, 4.8vw, 3rem);
+  margin: .1em 0 .5em;
   color: var(--brown);
 }
 .section--dark .head h2 { color: var(--cream); }
@@ -195,16 +212,17 @@ a { color: inherit; }
   font-family: var(--display);
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(1.2rem, 3vw, 1.9rem);
+  font-size: clamp(1.3rem, 3.4vw, 2.1rem);
   color: var(--gold);
-  margin-bottom: .1em;
+  margin-bottom: .08em;
 }
 .hero h1 {
   font-family: var(--display);
   font-weight: 700;
-  font-size: clamp(2.5rem, 9.5vw, 6.4rem);
-  letter-spacing: -.01em;
-  line-height: .98;
+  text-transform: none;
+  font-size: clamp(2.9rem, 11.5vw, 7.6rem);
+  letter-spacing: -.02em;
+  line-height: .96;
   margin: 0 0 .5rem;
 }
 .hero__subline {
@@ -219,19 +237,10 @@ a { color: inherit; }
 
 /* ----------  Fiche (frame in frame + listing)  ---------- */
 .frame {
-  position: relative;
   max-width: 820px;
   border: 1px solid var(--gold-line);
   padding: clamp(26px, 5vw, 52px) clamp(22px, 5vw, 56px);
 }
-.frame::before, .frame::after {
-  content: "";
-  position: absolute;
-  width: 14px; height: 14px;
-  border: 2px solid var(--gold);
-}
-.frame::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
-.frame::after { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
 
 .listing { display: grid; }
 .listing__row {
@@ -267,20 +276,6 @@ a { color: inherit; }
   .listing__v { text-align: left; white-space: normal; }
 }
 
-.meta-line {
-  margin: clamp(24px, 4vw, 36px) 0 0;
-  text-align: center;
-  font-size: .96rem;
-  color: rgba(30, 20, 16, .58);
-}
-.meta-line span::after { content: "\00b7"; margin: 0 .55em; color: var(--gold); }
-.meta-line span:last-child::after { content: ""; margin: 0; }
-@media (max-width: 640px) {
-  .meta-line { text-align: left; }
-  .meta-line span { display: block; margin-bottom: .3rem; }
-  .meta-line span::after { display: none; }
-}
-
 /* ----------  Photos (mosaïque plein cadre + visionneuse)  ---------- */
 .mosaic {
   display: grid;
@@ -288,7 +283,8 @@ a { color: inherit; }
   grid-auto-rows: clamp(140px, 18vw, 240px);
   grid-auto-flow: dense;
   gap: 4px;
-  margin: clamp(20px, 3vw, 32px) calc(var(--gutter) * -1) 0;
+  width: 100%;
+  margin: clamp(20px, 3vw, 32px) 0 0;
 }
 .mosaic__item {
   position: relative;
@@ -301,7 +297,6 @@ a { color: inherit; }
   cursor: pointer;
 }
 .mosaic__item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-.mosaic__item:nth-child(6) { grid-column: span 2; }
 .mosaic__item img {
   width: 100%; height: 100%;
   object-fit: cover;
@@ -313,8 +308,11 @@ a { color: inherit; }
 @media (max-width: 720px) {
   .mosaic { grid-template-columns: repeat(2, 1fr); grid-auto-rows: clamp(120px, 34vw, 170px); }
   .mosaic__item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-  .mosaic__item:nth-child(6) { grid-column: span 1; }
 }
+
+.mosaic-more { display: none; }
+
+.gallery-more { text-align: center; margin-top: clamp(28px, 4vw, 44px); }
 
 .lightbox {
   position: fixed; inset: 0; z-index: 300;
