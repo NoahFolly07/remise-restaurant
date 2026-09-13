@@ -1,28 +1,33 @@
 # À compléter / à décider
 
-Page minimale, style repris du **design system officiel Auberge du Barrage**
-(brun `#1e1410` · crème `#f5f0eb` · or `#a7825f` ; Cormorant Garamond +
-Josefin Sans + Allura).
-
-Contenu affiché (tout confirmé) :
-
-- Grande salle intérieure : 80 à 100 personnes
-- Terrasse : 50 places
-- Salle de comité / conférence : 30 personnes
-- Hôtel : 9 chambres
-- Appartement : 4,5 pièces
-- Cuisine professionnelle entièrement équipée
-- Reprise prévue : fin juin 2027
-- Clientèle locale et fidèle · bon chiffre d'affaires · activité en cours jusqu'à la remise
-- Contact : 079 365 90 04 · aubergebarrage@gmail.com
+Page en 4 blocs : Hero → L'établissement (fiche compacte) → Photos → Contact.
+Style : brun `#1e1410` · crème `#f5f0eb` · or `#a7825f`. Grands titres en
+Cormorant Garamond, texte courant en Inter (plus lisible), labels en
+Josefin Sans, une seule trace d'Allura (slogan du pied de page).
 
 ## Ouvert
 
-- [ ] **Prix** : rien d'affiché. Ajouter une fourchette (« dès CHF 200'000 » ?) ou laisser « sur demande » ?
-- [ ] **Photos** : hero = façade, contact = salle (dossier `../Photo/`). À remplacer si de meilleures photos existent (façade récente, cuisine, chambres).
-- [ ] **Nom de l'interlocuteur** : pas affiché (juste le numéro). À ajouter si souhaité.
-- [ ] Titre : « à remettre » — garder ou « à reprendre » ?
-- [ ] Police Allura : chargée via Google Fonts. Le DS prévoit un fichier local `Allura-Regular.ttf` — sans importance ici (rendu identique).
+- [ ] **Logo** : Noah doit fournir le logo exact à utiliser. En attendant,
+      la page utilise `assets/logo/logo-icon-blanc.png` (icône recadrée
+      depuis `logo-blanc.png`). Dès réception du bon fichier, le remplacer
+      dans `assets/logo/` et mettre à jour les deux `<img>` dans
+      `index.html` (en-tête + pied de page) si le nom de fichier change.
+- [ ] **Prix** : toujours rien d'affiché. Fourchette ou « sur demande » ?
+- [ ] **Photos / vidéos** : le slider utilise 11 photos du dossier
+      `../Photo/`. Si de meilleures photos ou des vidéos arrivent, les
+      ajouter dans `assets/img/` et un bloc `.gallery__item` dans
+      `index.html` (section `#photos`).
+- [ ] **Nom de l'interlocuteur** : toujours pas affiché.
+- [ ] Titre : « Remise de » — garder ou reformuler ?
+
+## Notes techniques
+
+- Le slider photos (`#photos`) est un carrousel natif CSS
+  (`overflow-x:auto` + `scroll-snap`) : swipe au doigt sur mobile, boutons
+  ‹ › sinon. Aucune librairie externe.
+- La fiche technique est une grille de 8 chiffres clés (plus aucun tableau
+  à rallonge) ; les 3 phrases (clientèle / CA / activité) sont repliées
+  dessous, dans la même section — il n'y a plus de bandeau séparé.
 
 ## Déploiement
 

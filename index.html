@@ -10,7 +10,7 @@
 <link rel="icon" href="assets/logo/logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Josefin+Sans:wght@300;400;500&family=Allura&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Josefin+Sans:wght@400;500&family=Allura&display=swap" />
 <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
@@ -21,7 +21,8 @@
     <span>Auberge du Barrage</span>
   </a>
   <nav class="site-nav" aria-label="Navigation">
-    <a href="#etablissement">L'établissement</a>
+    <a href="#etablissement">Détails</a>
+    <a href="#photos">Photos</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
@@ -32,14 +33,12 @@
 <section class="hero">
   <img class="hero__media" src="assets/img/exterieur.jpg" alt="Façade de l'Auberge du Barrage à Rossens" />
   <div class="hero__inner">
-    <p class="label">Remise de commerce &nbsp;·&nbsp; Rossens / Fribourg</p>
-    <span class="script">à remettre</span>
+    <span class="hero__pretitle">Remise de</span>
     <h1>L'Auberge<br />du Barrage</h1>
-    <hr class="rule rule--long" />
-    <p class="body-italic">Restaurant, terrasse et hôtel. Activité en cours jusqu'à la remise.</p>
+    <p class="hero__subline">Restaurant à remettre — Rossens, Fribourg.</p>
     <div class="cta-row">
-      <a class="cta cta--onphoto" href="#etablissement">Découvrir</a>
-      <a class="cta cta--onphoto" href="#contact">Nous contacter</a>
+      <a class="cta cta--onphoto" href="#etablissement">Découvrir<span class="cta__arrow">→</span></a>
+      <a class="cta cta--solid" href="#contact">Contact<span class="cta__arrow">→</span></a>
     </div>
   </div>
   <span class="scroll-cue" aria-hidden="true"></span>
@@ -49,34 +48,63 @@
 <section class="section section--cream anchor" id="etablissement">
   <div class="wrap">
     <div class="head reveal">
-      <span class="script">l'établissement</span>
+      <span class="label">L'établissement</span>
       <h2>Ce qui est à remettre</h2>
-      <hr class="rule" />
-      <p class="body-italic">Établissement situé à Rossens, région de Fribourg. À moins d'un kilomètre des entrées et sorties d'autoroute.</p>
     </div>
 
-    <div class="frame reveal">
-      <div class="listing">
-        <div class="listing__row"><span class="listing__k">Grande salle intérieure</span><span class="listing__dots" aria-hidden="true"></span><span class="listing__v">80 à 100 personnes</span></div>
-        <div class="listing__row"><span class="listing__k">Terrasse</span><span class="listing__dots" aria-hidden="true"></span><span class="listing__v">50 places</span></div>
-        <div class="listing__row"><span class="listing__k">Salle de comité / conférence</span><span class="listing__dots" aria-hidden="true"></span><span class="listing__v">30 personnes</span></div>
-        <div class="listing__row"><span class="listing__k">Hôtel</span><span class="listing__dots" aria-hidden="true"></span><span class="listing__v">9 chambres</span></div>
-        <div class="listing__row"><span class="listing__k">Appartement</span><span class="listing__dots" aria-hidden="true"></span><span class="listing__v">4,5 pièces</span></div>
-        <div class="listing__row"><span class="listing__k">Cuisine</span><span class="listing__dots" aria-hidden="true"></span><span class="listing__v">Professionnelle, entièrement équipée</span></div>
-        <div class="listing__row"><span class="listing__k">Reprise prévue</span><span class="listing__dots" aria-hidden="true"></span><span class="listing__v">Fin juin 2027</span></div>
-      </div>
+    <div class="stats reveal">
+      <div class="stat"><span class="stat__num">80–100</span><span class="stat__label">Grande salle</span></div>
+      <div class="stat"><span class="stat__num">50</span><span class="stat__label">Places en terrasse</span></div>
+      <div class="stat"><span class="stat__num">30</span><span class="stat__label">Salle de comité</span></div>
+      <div class="stat"><span class="stat__num">9</span><span class="stat__label">Chambres d'hôtel</span></div>
+      <div class="stat"><span class="stat__num">4,5</span><span class="stat__label">Pièces — appartement</span></div>
+      <div class="stat"><span class="stat__num">Équipée</span><span class="stat__label">Cuisine professionnelle</span></div>
+      <div class="stat"><span class="stat__num">&lt; 1 km</span><span class="stat__label">Entrées / sorties autoroute</span></div>
+      <div class="stat"><span class="stat__num">06 · 2027</span><span class="stat__label">Reprise prévue</span></div>
     </div>
+
+    <p class="meta-line reveal">
+      <span>Clientèle locale et fidèle</span>
+      <span>Bon chiffre d'affaires</span>
+      <span>Activité en cours jusqu'à la remise</span>
+    </p>
   </div>
 </section>
 
-<!-- ==================== BANDEAU ==================== -->
-<section class="section section--dark">
-  <div class="wrap statements reveal">
-    <p>Une clientèle locale et fidèle.</p>
-    <hr class="rule" />
-    <p>Un bon chiffre d'affaires.</p>
-    <hr class="rule" />
-    <p>Une activité en cours jusqu'à la remise.</p>
+<!-- ==================== PHOTOS ==================== -->
+<section class="section section--cream anchor" id="photos">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="label">Photos</span>
+      <h2>L'établissement en images</h2>
+    </div>
+
+    <div class="reveal">
+      <div class="gallery__track" id="gallery-track">
+        <div class="gallery__item"><figure><img src="assets/img/exterieur.jpg" alt="Façade de l'auberge" /><figcaption class="gallery__cap">Façade</figcaption></figure></div>
+        <div class="gallery__item"><figure><img src="assets/img/salle.webp" alt="Salle de restaurant" /><figcaption class="gallery__cap">La salle</figcaption></figure></div>
+        <div class="gallery__item"><figure><img src="assets/img/salle-banquet.webp" alt="Salle de banquet" /><figcaption class="gallery__cap">Salle de banquet</figcaption></figure></div>
+        <div class="gallery__item"><figure><img src="assets/img/bar.webp" alt="Le bar" /><figcaption class="gallery__cap">Le bar</figcaption></figure></div>
+        <div class="gallery__item"><figure><img src="assets/img/terrasse.webp" alt="La terrasse" /><figcaption class="gallery__cap">La terrasse</figcaption></figure></div>
+        <div class="gallery__item"><figure><img src="assets/img/chambre-1.webp" alt="Chambre d'hôtel" /><figcaption class="gallery__cap">Une chambre</figcaption></figure></div>
+        <div class="gallery__item"><figure><img src="assets/img/chambre-2.webp" alt="Chambre d'hôtel" /><figcaption class="gallery__cap">Une chambre</figcaption></figure></div>
+        <div class="gallery__item"><figure><img src="assets/img/evenements.webp" alt="Événement privé" /><figcaption class="gallery__cap">Les événements</figcaption></figure></div>
+        <div class="gallery__item"><figure><img src="assets/img/ambiance.webp" alt="Ambiance de la salle" /><figcaption class="gallery__cap">Ambiance</figcaption></figure></div>
+        <div class="gallery__item"><figure><img src="assets/img/plat-signature.jpg" alt="Plat signature" /><figcaption class="gallery__cap">Cuisine</figcaption></figure></div>
+        <div class="gallery__item"><figure><img src="assets/img/specialite-portugaise.jpg" alt="Spécialité portugaise" /><figcaption class="gallery__cap">Cuisine</figcaption></figure></div>
+      </div>
+      <div class="gallery__controls">
+        <span class="gallery__hint">Glisser pour voir plus</span>
+        <div class="gallery__nav">
+          <button class="gallery__btn" id="gallery-prev" aria-label="Photo précédente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7" /></svg>
+          </button>
+          <button class="gallery__btn" id="gallery-next" aria-label="Photo suivante">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7" /></svg>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -84,12 +112,11 @@
 <section class="section--contact anchor" id="contact">
   <img class="section__media" src="assets/img/salle.webp" alt="Salle de restaurant de l'Auberge du Barrage" />
   <div class="wrap reveal">
-    <span class="script">un mot&nbsp;?</span>
-    <h2 style="font-size: clamp(1.8rem, 5vw, 3rem); margin: .1em 0 .5em;">Demande d'information</h2>
-    <hr class="rule" />
+    <span class="label">Contact</span>
+    <h2 style="font-family: var(--display); font-weight:600; font-size: clamp(1.7rem, 4.6vw, 2.6rem); color: var(--cream); margin: .4rem 0 .3rem;">Demande d'information</h2>
     <a class="contact__phone" href="tel:+41793659004">079 365 90 04</a>
-    <div class="contact__mail">
-      <a class="cta cta--onphoto" href="mailto:aubergebarrage@gmail.com?subject=Reprise%20de%20l%27Auberge%20du%20Barrage">aubergebarrage@gmail.com</a>
+    <div>
+      <a class="cta cta--onphoto" href="mailto:aubergebarrage@gmail.com?subject=Reprise%20de%20l%27Auberge%20du%20Barrage">aubergebarrage@gmail.com<span class="cta__arrow">→</span></a>
     </div>
   </div>
 </section>
