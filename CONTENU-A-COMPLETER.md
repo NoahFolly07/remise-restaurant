@@ -1,33 +1,38 @@
 # À compléter / à décider
 
-Page en 4 blocs : Hero → L'établissement (fiche compacte) → Photos → Contact.
-Style : brun `#1e1410` · crème `#f5f0eb` · or `#a7825f`. Grands titres en
-Cormorant Garamond, texte courant en Inter (plus lisible), labels en
-Josefin Sans, une seule trace d'Allura (slogan du pied de page).
+Page en 4 blocs : Hero → L'établissement (fiche) → Photos (mosaïque +
+visionneuse) → Contact. Palette brun `#1e1410` / crème `#f5f0eb` / or
+`#a7825f`. Cormorant Garamond réservé au grand titre du hero ; tout le
+reste en Inter (lisibilité) ; Josefin Sans pour les petits labels ; une
+seule trace d'Allura (slogan du pied de page).
 
 ## Ouvert
 
-- [ ] **Logo** : Noah doit fournir le logo exact à utiliser. En attendant,
-      la page utilise `assets/logo/logo-icon-blanc.png` (icône recadrée
-      depuis `logo-blanc.png`). Dès réception du bon fichier, le remplacer
-      dans `assets/logo/` et mettre à jour les deux `<img>` dans
-      `index.html` (en-tête + pied de page) si le nom de fichier change.
-- [ ] **Prix** : toujours rien d'affiché. Fourchette ou « sur demande » ?
-- [ ] **Photos / vidéos** : le slider utilise 11 photos du dossier
-      `../Photo/`. Si de meilleures photos ou des vidéos arrivent, les
-      ajouter dans `assets/img/` et un bloc `.gallery__item` dans
-      `index.html` (section `#photos`).
+- [ ] **Logo** : Noah a transmis une image du logo dans le chat (icône
+      dorée, fond transparent) — visuellement identique à
+      `assets/logo/logo.png` déjà utilisé dans le projet. Si le fichier
+      réel diffère (résolution, version), le déposer directement dans
+      `remise-restaurant/assets/logo/` (Claude a accès au dossier en
+      local) plutôt que de le repartager dans le chat.
+- [ ] **Référence de style** : Noah doit envoyer un site qu'il aime pour
+      une prochaine passe de design (structure « landing page » moderne).
+      Rien à faire tant que le lien n'est pas arrivé.
+- [ ] **Prix** : toujours rien d'affiché.
 - [ ] **Nom de l'interlocuteur** : toujours pas affiché.
-- [ ] Titre : « Remise de » — garder ou reformuler ?
 
-## Notes techniques
+## Notes techniques (v4)
 
-- Le slider photos (`#photos`) est un carrousel natif CSS
-  (`overflow-x:auto` + `scroll-snap`) : swipe au doigt sur mobile, boutons
-  ‹ › sinon. Aucune librairie externe.
-- La fiche technique est une grille de 8 chiffres clés (plus aucun tableau
-  à rallonge) ; les 3 phrases (clientèle / CA / activité) sont repliées
-  dessous, dans la même section — il n'y a plus de bandeau séparé.
+- **En-tête** : masqué au scroll vers le bas, réaffiché au scroll vers le
+  haut ou en haut de page (comme demandé). Passe en fond brun uni une fois
+  sorti du hero.
+- **Hero** : contenu recentré verticalement (plus haut qu'avant), le trait
+  décoratif en bas a été supprimé.
+- **L'établissement** : retour à l'encadré « frame in frame » avec liste à
+  points de conduite (version préférée par Noah à la grille de chiffres).
+- **Photos** : mosaïque plein cadre (12 photos, tailles variées, zéro
+  légende) ; clic sur une photo → visionneuse plein écran avec flèches
+  précédent/suivant, fermeture (croix, Échap, clic hors-image), swipe
+  tactile. Aucune librairie externe.
 
 ## Déploiement
 

@@ -41,7 +41,6 @@
       <a class="cta cta--solid" href="#contact">Contact<span class="cta__arrow">→</span></a>
     </div>
   </div>
-  <span class="scroll-cue" aria-hidden="true"></span>
 </section>
 
 <!-- ==================== L'ÉTABLISSEMENT ==================== -->
@@ -52,15 +51,17 @@
       <h2>Ce qui est à remettre</h2>
     </div>
 
-    <div class="stats reveal">
-      <div class="stat"><span class="stat__num">80–100</span><span class="stat__label">Grande salle</span></div>
-      <div class="stat"><span class="stat__num">50</span><span class="stat__label">Places en terrasse</span></div>
-      <div class="stat"><span class="stat__num">30</span><span class="stat__label">Salle de comité</span></div>
-      <div class="stat"><span class="stat__num">9</span><span class="stat__label">Chambres d'hôtel</span></div>
-      <div class="stat"><span class="stat__num">4,5</span><span class="stat__label">Pièces — appartement</span></div>
-      <div class="stat"><span class="stat__num">Équipée</span><span class="stat__label">Cuisine professionnelle</span></div>
-      <div class="stat"><span class="stat__num">&lt; 1 km</span><span class="stat__label">Entrées / sorties autoroute</span></div>
-      <div class="stat"><span class="stat__num">06 · 2027</span><span class="stat__label">Reprise prévue</span></div>
+    <div class="frame reveal">
+      <div class="listing">
+        <div class="listing__row"><span class="listing__k">Grande salle intérieure</span><span class="listing__dots" aria-hidden="true"></span><span class="listing__v">80 à 100 personnes</span></div>
+        <div class="listing__row"><span class="listing__k">Terrasse</span><span class="listing__dots" aria-hidden="true"></span><span class="listing__v">50 places</span></div>
+        <div class="listing__row"><span class="listing__k">Salle de comité / conférence</span><span class="listing__dots" aria-hidden="true"></span><span class="listing__v">30 personnes</span></div>
+        <div class="listing__row"><span class="listing__k">Hôtel</span><span class="listing__dots" aria-hidden="true"></span><span class="listing__v">9 chambres</span></div>
+        <div class="listing__row"><span class="listing__k">Appartement</span><span class="listing__dots" aria-hidden="true"></span><span class="listing__v">4,5 pièces</span></div>
+        <div class="listing__row"><span class="listing__k">Cuisine</span><span class="listing__dots" aria-hidden="true"></span><span class="listing__v">Professionnelle, entièrement équipée</span></div>
+        <div class="listing__row"><span class="listing__k">Autoroute</span><span class="listing__dots" aria-hidden="true"></span><span class="listing__v">Entrées / sorties à moins d'1 km</span></div>
+        <div class="listing__row"><span class="listing__k">Reprise prévue</span><span class="listing__dots" aria-hidden="true"></span><span class="listing__v">Fin juin 2027</span></div>
+      </div>
     </div>
 
     <p class="meta-line reveal">
@@ -78,42 +79,44 @@
       <span class="label">Photos</span>
       <h2>L'établissement en images</h2>
     </div>
+  </div>
 
-    <div class="reveal">
-      <div class="gallery__track" id="gallery-track">
-        <div class="gallery__item"><figure><img src="assets/img/exterieur.jpg" alt="Façade de l'auberge" /><figcaption class="gallery__cap">Façade</figcaption></figure></div>
-        <div class="gallery__item"><figure><img src="assets/img/salle.webp" alt="Salle de restaurant" /><figcaption class="gallery__cap">La salle</figcaption></figure></div>
-        <div class="gallery__item"><figure><img src="assets/img/salle-banquet.webp" alt="Salle de banquet" /><figcaption class="gallery__cap">Salle de banquet</figcaption></figure></div>
-        <div class="gallery__item"><figure><img src="assets/img/bar.webp" alt="Le bar" /><figcaption class="gallery__cap">Le bar</figcaption></figure></div>
-        <div class="gallery__item"><figure><img src="assets/img/terrasse.webp" alt="La terrasse" /><figcaption class="gallery__cap">La terrasse</figcaption></figure></div>
-        <div class="gallery__item"><figure><img src="assets/img/chambre-1.webp" alt="Chambre d'hôtel" /><figcaption class="gallery__cap">Une chambre</figcaption></figure></div>
-        <div class="gallery__item"><figure><img src="assets/img/chambre-2.webp" alt="Chambre d'hôtel" /><figcaption class="gallery__cap">Une chambre</figcaption></figure></div>
-        <div class="gallery__item"><figure><img src="assets/img/evenements.webp" alt="Événement privé" /><figcaption class="gallery__cap">Les événements</figcaption></figure></div>
-        <div class="gallery__item"><figure><img src="assets/img/ambiance.webp" alt="Ambiance de la salle" /><figcaption class="gallery__cap">Ambiance</figcaption></figure></div>
-        <div class="gallery__item"><figure><img src="assets/img/plat-signature.jpg" alt="Plat signature" /><figcaption class="gallery__cap">Cuisine</figcaption></figure></div>
-        <div class="gallery__item"><figure><img src="assets/img/specialite-portugaise.jpg" alt="Spécialité portugaise" /><figcaption class="gallery__cap">Cuisine</figcaption></figure></div>
-      </div>
-      <div class="gallery__controls">
-        <span class="gallery__hint">Glisser pour voir plus</span>
-        <div class="gallery__nav">
-          <button class="gallery__btn" id="gallery-prev" aria-label="Photo précédente">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7" /></svg>
-          </button>
-          <button class="gallery__btn" id="gallery-next" aria-label="Photo suivante">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7" /></svg>
-          </button>
-        </div>
-      </div>
-    </div>
+  <div class="mosaic reveal" id="mosaic">
+    <button class="mosaic__item" type="button"><img src="assets/img/exterieur.jpg" alt="Façade de l'auberge" loading="lazy" /></button>
+    <button class="mosaic__item" type="button"><img src="assets/img/salle.webp" alt="Salle de restaurant" loading="lazy" /></button>
+    <button class="mosaic__item" type="button"><img src="assets/img/bar.webp" alt="Le bar" loading="lazy" /></button>
+    <button class="mosaic__item" type="button"><img src="assets/img/terrasse.webp" alt="La terrasse" loading="lazy" /></button>
+    <button class="mosaic__item" type="button"><img src="assets/img/salle-banquet.webp" alt="Salle de banquet" loading="lazy" /></button>
+    <button class="mosaic__item" type="button"><img src="assets/img/chambre-1.webp" alt="Chambre d'hôtel" loading="lazy" /></button>
+    <button class="mosaic__item" type="button"><img src="assets/img/chambre-2.webp" alt="Chambre d'hôtel" loading="lazy" /></button>
+    <button class="mosaic__item" type="button"><img src="assets/img/evenements.webp" alt="Événement privé" loading="lazy" /></button>
+    <button class="mosaic__item" type="button"><img src="assets/img/ambiance.webp" alt="Ambiance de la salle" loading="lazy" /></button>
+    <button class="mosaic__item" type="button"><img src="assets/img/plat-signature.jpg" alt="Plat signature" loading="lazy" /></button>
+    <button class="mosaic__item" type="button"><img src="assets/img/specialite-portugaise.jpg" alt="Spécialité portugaise" loading="lazy" /></button>
+    <button class="mosaic__item" type="button"><img src="assets/img/frites.webp" alt="Frites maison" loading="lazy" /></button>
   </div>
 </section>
+
+<!-- ==================== VISIONNEUSE PHOTOS ==================== -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox__btn lightbox__close" id="lightbox-close" aria-label="Fermer">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18" /></svg>
+  </button>
+  <button class="lightbox__btn lightbox__prev" id="lightbox-prev" aria-label="Photo précédente">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7" /></svg>
+  </button>
+  <img class="lightbox__img" id="lightbox-img" src="" alt="" />
+  <button class="lightbox__btn lightbox__next" id="lightbox-next" aria-label="Photo suivante">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7" /></svg>
+  </button>
+</div>
 
 <!-- ==================== CONTACT ==================== -->
 <section class="section--contact anchor" id="contact">
   <img class="section__media" src="assets/img/salle.webp" alt="Salle de restaurant de l'Auberge du Barrage" />
   <div class="wrap reveal">
     <span class="label">Contact</span>
-    <h2 style="font-family: var(--display); font-weight:600; font-size: clamp(1.7rem, 4.6vw, 2.6rem); color: var(--cream); margin: .4rem 0 .3rem;">Demande d'information</h2>
+    <h2 style="font-family: var(--body); font-weight:700; font-size: clamp(1.6rem, 4.4vw, 2.4rem); color: var(--cream); margin: .4rem 0 .3rem; letter-spacing:-.01em;">Demande d'information</h2>
     <a class="contact__phone" href="tel:+41793659004">079 365 90 04</a>
     <div>
       <a class="cta cta--onphoto" href="mailto:aubergebarrage@gmail.com?subject=Reprise%20de%20l%27Auberge%20du%20Barrage">aubergebarrage@gmail.com<span class="cta__arrow">→</span></a>
