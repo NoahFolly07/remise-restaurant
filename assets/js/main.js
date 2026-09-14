@@ -46,14 +46,26 @@
   var items = Array.prototype.slice.call(document.querySelectorAll(".mosaic__item"));
   var lb = document.getElementById("lightbox");
   var lbImg = document.getElementById("lightbox-img");
+  var lbVideo = document.getElementById("lightbox-video");
   if (items.length && lb && lbImg) {
     var current = 0;
 
     var show = function (i) {
       current = (i + items.length) % items.length;
-      var img = items[current].querySelector("img");
-      lbImg.src = img.currentSrc || img.src;
-      lbImg.alt = img.alt || "";
+      var el = items[current];
+      var videoSrc = el.dataset.video;
+      if (videoSrc && lbVideo) {
+        lbVideo.pause();
+        if (lbVideo.src !== videoSrc) lbVideo.src = videoSrc;
+        lbVideo.hidden = false;
+        lbImg.hidden = true;
+      } else {
+        if (lbVideo) { lbVideo.pause(); lbVideo.hidden = true; lbVideo.removeAttribute("src"); }
+        var img = el.querySelector("img");
+        lbImg.src = img.currentSrc || img.src;
+        lbImg.alt = img.alt || "";
+        lbImg.hidden = false;
+      }
     };
     var open = function (i) {
       show(i);
@@ -65,6 +77,7 @@
       lb.classList.remove("is-open");
       lb.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
+      if (lbVideo) lbVideo.pause();
     };
 
     items.forEach(function (el, i) {
