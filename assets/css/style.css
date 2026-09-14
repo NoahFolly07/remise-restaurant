@@ -156,7 +156,7 @@ h1, h2, h3 {
 .site-header.is-solid::before { opacity: 0; }
 
 .brand { display: flex; align-items: center; text-decoration: none; }
-.brand img { height: clamp(46px, 7.5vw, 62px); width: auto; }
+.brand img { height: clamp(56px, 9vw, 78px); width: auto; }
 
 .site-nav { display: flex; gap: clamp(14px, 2.6vw, 30px); }
 .site-nav a {
@@ -389,16 +389,14 @@ h1, h2, h3 {
   padding: clamp(52px, 8vw, 84px) var(--gutter);
   border-top: 1px solid var(--gold-faint);
 }
-.site-footer img { height: 42px; width: auto; margin: 0 auto 14px; }
-.site-footer .wordmark {
-  font-family: var(--label);
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: .28em;
-  font-size: .78rem;
-  color: var(--brown);
-  margin-bottom: 16px;
+.site-footer .logo-plate {
+  display: inline-block;
+  background: var(--brown);
+  padding: 16px 26px;
+  margin-bottom: 22px;
+  border-radius: 2px;
 }
+.site-footer .logo-plate img { height: 54px; width: auto; margin: 0; }
 .site-footer .slogan {
   font-family: var(--script);
   font-size: 1.7rem;
