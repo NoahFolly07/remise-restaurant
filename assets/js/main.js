@@ -56,6 +56,8 @@
       var el = items[current];
       var videoSrc = el.dataset.video;
       if (videoSrc && lbVideo) {
+        var poster = el.querySelector("img");
+        if (poster) lbVideo.poster = poster.currentSrc || poster.src;
         lbImg.hidden = true;
         lbVideo.hidden = false;
         lbVideo.pause();
@@ -109,18 +111,28 @@
        swipe (source du visuel "coupé en deux" pendant la transition). */
     var touchStartX = null, touchStartY = null, isSwiping = false;
     lb.addEventListener("touchstart", function (e) {
+      // Non passive + preventDefault dès le départ : sur iOS Safari, le
+      // geste natif de retour (edge-swipe) peut s'armer dès le premier
+      // point de contact près du bord de l'écran. Attendre le premier
+      // touchmove pour bloquer ce geste arrive trop tard.
+      e.preventDefault();
       touchStartX = e.touches[0].clientX;
       touchStartY = e.touches[0].clientY;
       isSwiping = false;
-    }, { passive: true });
+    }, { passive: false });
     lb.addEventListener("touchmove", function (e) {
       if (touchStartX === null) return;
+      // Bloque systématiquement le geste natif du navigateur (retour en
+      // glissant, etc.) dès le premier mouvement — attendre un seuil
+      // avant d'appeler preventDefault() laisse le temps au geste natif
+      // de démarrer et de rester actif en parallèle du changement de
+      // slide (c'est ce qui provoquait l'écran coupé en deux).
+      e.preventDefault();
       var dx = e.touches[0].clientX - touchStartX;
       var dy = e.touches[0].clientY - touchStartY;
       if (!isSwiping && Math.abs(dx) > 12 && Math.abs(dx) > Math.abs(dy)) {
         isSwiping = true;
       }
-      if (isSwiping) e.preventDefault();
     }, { passive: false });
     lb.addEventListener("touchend", function (e) {
       if (isSwiping && touchStartX !== null) {
