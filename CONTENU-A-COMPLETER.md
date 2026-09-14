@@ -20,11 +20,19 @@ reste (8) accessible via « Voir plus ». Fichiers sources dans
       converti en `.mp4`. Tailles : 19,6→5,5 Mo / 15,3→4,3 Mo /
       23,8→6,5 Mo / 8,9→1,5 Mo. Qualité, résolution (1080×1920) et
       durée inchangées.
+- [x] **Nom de domaine GoDaddy → GitHub Pages** (2026-09-14) : le
+      blocage venait d'une redirection de domaine active côté GoDaddy
+      (Forward Domain), pas de systeme.io. Une fois supprimée, les 2
+      lignes A gelées ont disparu. DNS repointé sur les 4 A GitHub
+      (185.199.108/109/110/111.153) + `CNAME www → noahfolly07.github.io.`,
+      fichier `CNAME` (`auberge-du-barrage.com`) ajouté au repo, domaine
+      personnalisé + HTTPS activés dans Settings → Pages. Vérifié en
+      ligne : `https://auberge-du-barrage.com` répond en 200, `www`
+      redirige proprement.
 - [ ] **Prix** / **nom de l'interlocuteur** : toujours pas affichés.
 - [ ] **Référence de style** : toujours en attente d'un lien de site.
-- [ ] **Nom de domaine GoDaddy** : migration depuis systeme.io en cours,
-      toujours bloquée côté GoDaddy au 2026-09-14 — voir la conversation
-      pour le détail des enregistrements DNS à garder/supprimer.
+- [ ] **QR code sur l'affiche A4** : reste à générer et intégrer une fois
+      le domaine final confirmé, puis imprimer.
 
 ## Notes techniques (v8 — galerie)
 
