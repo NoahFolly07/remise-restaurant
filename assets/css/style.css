@@ -453,8 +453,8 @@ h1, h2, h3 {
   .hero h1 { font-size: clamp(6rem, 10vw, 11.5rem); }
   .hero__pretitle { font-size: clamp(2.8rem, 4.6vw, 4.4rem); }
   .hero__subline { font-size: clamp(1.2rem, 1.5vw, 1.4rem); }
-  .frame { margin-inline: auto; }
-  .frame-note { margin-inline: auto; font-size: 1.08rem; }
+  .frame-note { font-size: 1.08rem; }
+  #gallery-more-btn { padding: 1.3em 2.1em; font-size: 1rem; }
 }
 
 /* ----------  Reveal on scroll  ---------- */
