@@ -448,6 +448,15 @@ h1, h2, h3 {
 }
 .footer-link:hover { color: var(--cream); border-color: var(--cream-line); }
 
+/* ----------  Réglages desktop uniquement (mobile inchangé)  ---------- */
+@media (min-width: 860px) {
+  .hero h1 { font-size: clamp(6rem, 10vw, 11.5rem); }
+  .hero__pretitle { font-size: clamp(2.8rem, 4.6vw, 4.4rem); }
+  .hero__subline { font-size: clamp(1.2rem, 1.5vw, 1.4rem); }
+  .frame { margin-inline: auto; }
+  .frame-note { margin-inline: auto; font-size: 1.08rem; }
+}
+
 /* ----------  Reveal on scroll  ---------- */
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
 .reveal.is-in { opacity: 1; transform: none; }
