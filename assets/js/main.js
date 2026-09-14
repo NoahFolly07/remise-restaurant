@@ -50,6 +50,21 @@
   if (items.length && lb && lbImg) {
     var current = 0;
 
+    /* Précharge les miniatures des vidéos dès le chargement de la page :
+       à l'intérieur du panneau caché #mosaic-more, une image "lazy" peut
+       ne jamais démarrer son chargement sur certains navigateurs mobiles
+       (rien ne la rend jamais visible), ce qui laissait la vidéo
+       s'ouvrir sur un fond noir tant que l'image miniature n'avait pas
+       encore été récupérée. */
+    items.forEach(function (el) {
+      var videoSrc = el.dataset.video;
+      if (!videoSrc) return;
+      var posterImg = el.querySelector("img");
+      if (!posterImg) return;
+      var preload = new Image();
+      preload.src = posterImg.getAttribute("src");
+    });
+
     var loadedVideoSrc = null;
     var show = function (i) {
       current = (i + items.length) % items.length;
@@ -57,7 +72,7 @@
       var videoSrc = el.dataset.video;
       if (videoSrc && lbVideo) {
         var poster = el.querySelector("img");
-        if (poster) lbVideo.poster = poster.currentSrc || poster.src;
+        if (poster) lbVideo.poster = poster.getAttribute("src");
         lbImg.hidden = true;
         lbVideo.hidden = false;
         lbVideo.pause();
@@ -66,7 +81,7 @@
         if (lbVideo) { lbVideo.pause(); lbVideo.hidden = true; lbVideo.removeAttribute("src"); loadedVideoSrc = null; }
         var img = el.querySelector("img");
         lbImg.hidden = false;
-        lbImg.src = img.currentSrc || img.src;
+        lbImg.src = img.getAttribute("src");
         lbImg.alt = img.alt || "";
       }
     };
