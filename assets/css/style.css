@@ -155,18 +155,8 @@ h1, h2, h3 {
 .site-header.is-solid { background: var(--brown); padding-block: 11px; }
 .site-header.is-solid::before { opacity: 0; }
 
-.brand { display: flex; align-items: center; gap: 11px; text-decoration: none; }
-.brand img { height: clamp(24px, 3.4vw, 30px); width: auto; }
-.brand span {
-  font-family: var(--label);
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: .22em;
-  font-size: clamp(.6rem, 1.2vw, .7rem);
-  color: var(--cream);
-  white-space: nowrap;
-}
-@media (max-width: 480px) { .brand span { display: none; } }
+.brand { display: flex; align-items: center; text-decoration: none; }
+.brand img { height: clamp(46px, 7.5vw, 62px); width: auto; }
 
 .site-nav { display: flex; gap: clamp(14px, 2.6vw, 30px); }
 .site-nav a {
