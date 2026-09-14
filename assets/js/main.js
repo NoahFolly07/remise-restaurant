@@ -104,36 +104,22 @@
       else if (e.key === "ArrowRight") show(current + 1);
     });
 
-    /* Balayage tactile — ne bloque le tap natif (bouton lecture de la
-       vidéo, etc.) que si un vrai geste horizontal est détecté ; sinon
-       on laisse le tap passer normalement. Empêche aussi le geste de
-       navigation "retour" du navigateur mobile de s'activer pendant le
-       swipe (source du visuel "coupé en deux" pendant la transition). */
+    /* Balayage tactile — on ne touche jamais au comportement par défaut
+       sur touchstart (un tap immobile — bouton fermer/flèche, contrôles
+       natifs de la vidéo — ne doit jamais être intercepté : sans
+       déplacement, aucun preventDefault n'est appelé et le clic natif
+       part normalement). Dès qu'un vrai mouvement horizontal apparaît en
+       touchmove, on bloque le geste natif du navigateur (retour en
+       glissant) immédiatement, avant qu'il ait pu s'armer — c'est ce qui
+       empêchait l'écran de se couper en deux pendant la transition. */
     var touchStartX = null, touchStartY = null, isSwiping = false;
-    var videoIsCurrent = function () { return !!(lbVideo && !lbVideo.hidden); };
     lb.addEventListener("touchstart", function (e) {
-      // Quand une vidéo est affichée, on laisse le geste tactile natif
-      // intact (ne pas appeler preventDefault) : c'est lui qui pilote les
-      // contrôles natifs de lecture. Les bloquer empêchait de lancer la
-      // vidéo. On ne navigue plus au swipe pendant qu'une vidéo est
-      // affichée — les flèches / le bouton fermer restent disponibles.
-      if (videoIsCurrent()) { touchStartX = null; return; }
-      // Non passive + preventDefault dès le départ : sur iOS Safari, le
-      // geste natif de retour (edge-swipe) peut s'armer dès le premier
-      // point de contact près du bord de l'écran. Attendre le premier
-      // touchmove pour bloquer ce geste arrive trop tard.
-      e.preventDefault();
       touchStartX = e.touches[0].clientX;
       touchStartY = e.touches[0].clientY;
       isSwiping = false;
-    }, { passive: false });
+    }, { passive: true });
     lb.addEventListener("touchmove", function (e) {
-      if (touchStartX === null || videoIsCurrent()) return;
-      // Bloque systématiquement le geste natif du navigateur (retour en
-      // glissant, etc.) dès le premier mouvement — attendre un seuil
-      // avant d'appeler preventDefault() laisse le temps au geste natif
-      // de démarrer et de rester actif en parallèle du changement de
-      // slide (c'est ce qui provoquait l'écran coupé en deux).
+      if (touchStartX === null) return;
       e.preventDefault();
       var dx = e.touches[0].clientX - touchStartX;
       var dy = e.touches[0].clientY - touchStartY;
@@ -142,7 +128,6 @@
       }
     }, { passive: false });
     lb.addEventListener("touchend", function (e) {
-      if (videoIsCurrent()) { touchStartX = null; touchStartY = null; isSwiping = false; return; }
       if (isSwiping && touchStartX !== null) {
         var dx = e.changedTouches[0].clientX - touchStartX;
         if (Math.abs(dx) > 40) show(current + (dx < 0 ? 1 : -1));
