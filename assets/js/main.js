@@ -55,7 +55,12 @@
        ne jamais démarrer son chargement sur certains navigateurs mobiles
        (rien ne la rend jamais visible), ce qui laissait la vidéo
        s'ouvrir sur un fond noir tant que l'image miniature n'avait pas
-       encore été récupérée. */
+       encore été récupérée. On garde une référence à chaque Image() dans
+       un tableau : sans ça, Safari peut annuler le téléchargement en
+       cours dès que l'objet est ramassé par le garbage collector — ce
+       qui expliquait un chargement aléatoire (parfois une miniature
+       manque, parfois une autre, selon le moment du GC). */
+    var preloadedPosters = [];
     items.forEach(function (el) {
       var videoSrc = el.dataset.video;
       if (!videoSrc) return;
@@ -63,6 +68,7 @@
       if (!posterImg) return;
       var preload = new Image();
       preload.src = posterImg.getAttribute("src");
+      preloadedPosters.push(preload);
     });
 
     var loadedVideoSrc = null;
