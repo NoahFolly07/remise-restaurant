@@ -1,45 +1,40 @@
 # À compléter / à décider
 
-Page en 4 blocs : Hero → L'établissement (fiche) → Photos (mosaïque
-réduite + visionneuse photo/vidéo) → Contact → Footer (brun, logo complet
+Page en 4 blocs : Hero → L'établissement (fiche) → Photos et vidéos
+(mosaïque réduite + visionneuse) → Contact → Footer (brun, logo complet
 + liens Instagram/Facebook/site principal).
 
-## Ouvert — sélection photos/vidéos en cours
+## Galerie photos/vidéos — mise à jour avec la sélection de Noah
 
-Noah va envoyer une sélection : surtout des photos de **l'enceinte du
-bâtiment** (extérieur, salle, chambres, terrasse...), peu ou pas de
-photos de plats (un seul plat max). Rien à faire tant que la sélection
-n'est pas arrivée — inventaire actuel dans `assets/img/` :
+9 photos + 4 vidéos, toutes centrées sur les lieux (aucun plat), comme
+demandé. 5 items visibles (façade, réception, salle, 1 vidéo, bar), le
+reste (8) accessible via « Voir plus ». Fichiers sources dans
+`Downloads/transfer-01a08a03/` sur le PC de Noah.
 
-- Bâtiment/lieux : `exterieur.jpg`, `bar.webp`, `salle-banquet.webp`,
-  `chambre-1.webp`, `chambre-2.webp`
-- Ambiance table/plat (à trier) : `salle.webp`, `terrasse.webp`,
-  `evenements.webp`, `ambiance.webp`
-- Plats (probablement à réduire à 0-1) : `plat-signature.jpg`,
-  `specialite-portugaise.jpg`, `frites.webp`
+- [ ] **Vidéos testées avec succès dans ce navigateur** (décodage,
+      lecture, poster généré automatiquement) — à confirmer que ça joue
+      bien aussi sur le téléphone de Noah et dans d'autres navigateurs
+      (Safari notamment, pas testable depuis cet environnement). Le
+      fichier `.MOV` a été laissé tel quel (pas converti en .mp4, aucun
+      outil de conversion disponible ici) — s'il pose un souci sur un
+      navigateur particulier, le reconvertir en .mp4 H.264.
+- [ ] **Prix** / **nom de l'interlocuteur** : toujours pas affichés.
+- [ ] **Référence de style** : toujours en attente d'un lien de site.
+- [ ] **Nom de domaine GoDaddy** : migration depuis systeme.io en cours,
+      toujours bloquée côté GoDaddy au 2026-09-14 — voir la conversation
+      pour le détail des enregistrements DNS à garder/supprimer.
 
-**Vidéos : c'est prêt côté technique.** La visionneuse (`#lightbox`)
-sait déjà afficher une vidéo à la place d'une photo. Pour ajouter une
-vidéo : mettre le fichier dans `assets/img/`, ajouter un
-`<button class="mosaic__item" data-video="assets/img/xxx.mp4">` avec une
-image de couverture (`<img>`) à l'intérieur — un badge ▶ apparaît
-automatiquement sur la vignette. Pas encore testé avec un vrai fichier
-vidéo (aucun reçu à ce stade).
+## Notes techniques (v8 — galerie)
 
-## Autres points ouverts
-
-- **Prix** / **nom de l'interlocuteur** : toujours pas affichés.
-- **Référence de style** : toujours en attente d'un lien de site.
-
-## Notes techniques (v7)
-
-- Logo : header réglé à une taille équilibrée (58–78px) après plusieurs
-  itérations ; footer repassé en fond brun avec le même logo complet
-  (icône + texte baké dans `logo-header.png`), en grand, sans plaque.
-- Slogan retiré du footer ; lien ajouté vers le site principal
-  (`https://auberge-du-barrage.ch/`, à vérifier — le domaine
-  `aubergedubarrage.ch` sans tiret est un domaine parqué/à vendre, pas le
-  vrai site).
+- Fichiers vidéo dans `assets/video/` (`video-1.mp4` à `video-3.mp4` +
+  `video-4.mov`, 8 à 24 Mo chacun). Posters générés automatiquement
+  (`assets/img/video-*-poster.jpg`).
+- Anciennes photos de plats et de terrasse/ambiance non retenues par
+  Noah supprimées du repo (`terrasse.webp`, `salle-banquet.webp`,
+  `ambiance.webp`, `plat-signature.jpg`, `specialite-portugaise.jpg`,
+  `frites.webp`).
+- Eyebrow de la section Photos changé en « photos et vidéos » (le titre
+  H2 « L'établissement en images » reste inchangé).
 
 ## Déploiement
 
