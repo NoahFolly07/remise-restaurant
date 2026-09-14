@@ -342,7 +342,6 @@ h1, h2, h3 {
   background: rgba(20, 14, 10, .96);
   opacity: 0;
   pointer-events: none;
-  touch-action: none;
   transition: opacity .25s var(--ease);
 }
 .lightbox.is-open { opacity: 1; pointer-events: auto; }

@@ -104,35 +104,5 @@
       else if (e.key === "ArrowRight") show(current + 1);
     });
 
-    /* Balayage tactile — on ne touche jamais au comportement par défaut
-       sur touchstart (un tap immobile — bouton fermer/flèche, contrôles
-       natifs de la vidéo — ne doit jamais être intercepté : sans
-       déplacement, aucun preventDefault n'est appelé et le clic natif
-       part normalement). Dès qu'un vrai mouvement horizontal apparaît en
-       touchmove, on bloque le geste natif du navigateur (retour en
-       glissant) immédiatement, avant qu'il ait pu s'armer — c'est ce qui
-       empêchait l'écran de se couper en deux pendant la transition. */
-    var touchStartX = null, touchStartY = null, isSwiping = false;
-    lb.addEventListener("touchstart", function (e) {
-      touchStartX = e.touches[0].clientX;
-      touchStartY = e.touches[0].clientY;
-      isSwiping = false;
-    }, { passive: true });
-    lb.addEventListener("touchmove", function (e) {
-      if (touchStartX === null) return;
-      e.preventDefault();
-      var dx = e.touches[0].clientX - touchStartX;
-      var dy = e.touches[0].clientY - touchStartY;
-      if (!isSwiping && Math.abs(dx) > 12 && Math.abs(dx) > Math.abs(dy)) {
-        isSwiping = true;
-      }
-    }, { passive: false });
-    lb.addEventListener("touchend", function (e) {
-      if (isSwiping && touchStartX !== null) {
-        var dx = e.changedTouches[0].clientX - touchStartX;
-        if (Math.abs(dx) > 40) show(current + (dx < 0 ? 1 : -1));
-      }
-      touchStartX = null; touchStartY = null; isSwiping = false;
-    }, { passive: true });
   }
 })();
