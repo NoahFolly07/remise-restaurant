@@ -50,21 +50,22 @@
   if (items.length && lb && lbImg) {
     var current = 0;
 
+    var loadedVideoSrc = null;
     var show = function (i) {
       current = (i + items.length) % items.length;
       var el = items[current];
       var videoSrc = el.dataset.video;
       if (videoSrc && lbVideo) {
-        lbVideo.pause();
-        if (lbVideo.src !== videoSrc) lbVideo.src = videoSrc;
-        lbVideo.hidden = false;
         lbImg.hidden = true;
+        lbVideo.hidden = false;
+        lbVideo.pause();
+        if (loadedVideoSrc !== videoSrc) { lbVideo.src = videoSrc; loadedVideoSrc = videoSrc; }
       } else {
-        if (lbVideo) { lbVideo.pause(); lbVideo.hidden = true; lbVideo.removeAttribute("src"); }
+        if (lbVideo) { lbVideo.pause(); lbVideo.hidden = true; lbVideo.removeAttribute("src"); loadedVideoSrc = null; }
         var img = el.querySelector("img");
+        lbImg.hidden = false;
         lbImg.src = img.currentSrc || img.src;
         lbImg.alt = img.alt || "";
-        lbImg.hidden = false;
       }
     };
     var open = function (i) {
@@ -101,14 +102,32 @@
       else if (e.key === "ArrowRight") show(current + 1);
     });
 
-    /* balayage tactile */
-    var touchX = null;
-    lb.addEventListener("touchstart", function (e) { touchX = e.changedTouches[0].clientX; }, { passive: true });
+    /* Balayage tactile — ne bloque le tap natif (bouton lecture de la
+       vidéo, etc.) que si un vrai geste horizontal est détecté ; sinon
+       on laisse le tap passer normalement. Empêche aussi le geste de
+       navigation "retour" du navigateur mobile de s'activer pendant le
+       swipe (source du visuel "coupé en deux" pendant la transition). */
+    var touchStartX = null, touchStartY = null, isSwiping = false;
+    lb.addEventListener("touchstart", function (e) {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      isSwiping = false;
+    }, { passive: true });
+    lb.addEventListener("touchmove", function (e) {
+      if (touchStartX === null) return;
+      var dx = e.touches[0].clientX - touchStartX;
+      var dy = e.touches[0].clientY - touchStartY;
+      if (!isSwiping && Math.abs(dx) > 12 && Math.abs(dx) > Math.abs(dy)) {
+        isSwiping = true;
+      }
+      if (isSwiping) e.preventDefault();
+    }, { passive: false });
     lb.addEventListener("touchend", function (e) {
-      if (touchX === null) return;
-      var dx = e.changedTouches[0].clientX - touchX;
-      if (Math.abs(dx) > 40) show(current + (dx < 0 ? 1 : -1));
-      touchX = null;
+      if (isSwiping && touchStartX !== null) {
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 40) show(current + (dx < 0 ? 1 : -1));
+      }
+      touchStartX = null; touchStartY = null; isSwiping = false;
     }, { passive: true });
   }
 })();
