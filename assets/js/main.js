@@ -78,11 +78,25 @@
       var videoSrc = el.dataset.video;
       if (videoSrc && lbVideo) {
         var poster = el.querySelector("img");
-        if (poster) lbVideo.poster = poster.getAttribute("src");
         lbImg.hidden = true;
         lbVideo.hidden = false;
-        lbVideo.pause();
-        if (loadedVideoSrc !== videoSrc) { lbVideo.src = videoSrc; loadedVideoSrc = videoSrc; }
+        if (loadedVideoSrc !== videoSrc) {
+          // Réinitialise complètement l'élément <video> avant de le
+          // réutiliser pour une nouvelle source : sur iOS Safari, le
+          // réemploi répété du même élément peut laisser un état interne
+          // (décodeur, image affichée) qui empêche le nouveau poster de
+          // s'afficher correctement — d'où un fond noir qui n'apparaît
+          // qu'à partir de la 3e ou 4e vidéo ouverte dans la session.
+          lbVideo.pause();
+          lbVideo.removeAttribute("src");
+          lbVideo.load();
+          if (poster) lbVideo.poster = poster.getAttribute("src");
+          lbVideo.src = videoSrc;
+          loadedVideoSrc = videoSrc;
+        } else {
+          lbVideo.pause();
+          if (poster) lbVideo.poster = poster.getAttribute("src");
+        }
       } else {
         if (lbVideo) { lbVideo.pause(); lbVideo.hidden = true; lbVideo.removeAttribute("src"); loadedVideoSrc = null; }
         var img = el.querySelector("img");
